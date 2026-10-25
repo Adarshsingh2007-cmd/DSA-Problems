@@ -8,14 +8,10 @@ public:
         int next = 1;
         while(next<intervals.size())
         {
-            if(intervals[i][1]>=intervals[next][0] && intervals[i][1]<=intervals[next][1])
+            if(intervals[i][1]>=intervals[next][0])
             {   
-                intervals[i][1] = intervals[next][1];
+                intervals[i][1] = max(intervals[next][1],intervals[i][1]);
                 intervals.erase(intervals.begin()+next);
-            }
-            else if(intervals[i][1]>=intervals[next][0] && intervals[i][1]>intervals[next][1])
-            {
-                 intervals.erase(intervals.begin()+next);
             }
             else
             {
